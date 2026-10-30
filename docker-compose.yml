@@ -1,0 +1,22 @@
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    container_name: n8n_uptime_monitoring
+    restart: unless-stopped
+    ports:
+      - "${N8N_PORT:-5678}:5678"
+    environment:
+      - N8N_HOST=${N8N_HOST:-localhost}
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=${N8N_PROTOCOL:-http}
+      - NODE_ENV=production
+      - WEBHOOK_URL=${WEBHOOK_URL:-http://localhost:5678/}
+      - GENERIC_TIMEZONE=${GENERIC_TIMEZONE:-Asia/Jakarta}
+      - TZ=${GENERIC_TIMEZONE:-Asia/Jakarta}
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./workflows:/backup/workflows
+
+volumes:
+  n8n_data:
+    name: n8n_helpdesk_data
