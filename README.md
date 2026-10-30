@@ -147,7 +147,6 @@ Create a Google Spreadsheet with the following columns to ensure compatibility w
 |---|---|
 | `status_terakhir` | Stores the latest website status (`AMAN` or `TIDAK AMAN`). |
 | `waktu_update` | Records the timestamp of the latest status update. |
-| `row_number` | Stores the spreadsheet row reference used by the workflow. |
 
 Make sure the initial status is set to `AMAN` if the website is currently accessible.
 
